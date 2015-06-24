@@ -1,0 +1,91 @@
+<script id="tpl_my_visit_settings" type="text/html">
+<div id="my_visit_settings" class="ztl_remove_from_page" style="overflow:hidden;">
+	<div class="header">
+		<div class="header_placeholder">
+			<div class="red_line"></div>
+			<div class="header_space"></div>
+			<div class="my_visit_header_title">{{page_title}}</div>
+			{{#dots}}
+				<div class="header_dots_simple"></div>
+			{{/dots}}
+			<div style="clear:both;"></div>
+			<div class="header_space"></div>
+		</div>
+		<div class="header_shadow"></div>
+	</div>
+	
+	<div class="ztl_content">
+	
+	<div id="verticalWrapper">
+	<div id="verticalScroller">
+	
+		<div class="my_visit_settings_content">
+			<div class="my_visit_list">
+				<div class="left my_visit_left">
+					<img src="assets/css/ztl_images/my_visit_tour.png" class="my_visit_questionmark">
+				</div>
+				<div class="right my_visit_right_1" onClick="add_to_history('main_menu--'+INSPIRED_GROUP); load_page(template_lang+'inspired.html', 'inspired', trips[INSPIRED_GROUP], 'fade', false, INSPIRED_GROUP);">
+					{{my_visit_tours}}
+				</div>
+			</div>
+			<div style="clear:both"></div>
+			<div class="my_visit_list_border"></div>
+			<div class="my_visit_list">
+				<div class="left my_visit_left">
+					<img src="assets/css/ztl_images/my_visit_poi.png" class="my_visit_questionmark">
+				</div>
+				<div class="right my_visit_right_2" onClick="add_to_history('fun--load_main_screen--empty'); load_main_screen(0);">
+					{{my_visit_poi}}
+				</div>
+			</div>
+			<div style="clear:both"></div>	
+			<div class="my_visit_list_border"></div>
+
+			<div class="my_visit_padding_top"></div>
+
+			<div class="left">
+				<img src="assets/css/ztl_images/my_visit_download.png" class="my_visit_questionmark" onclick="my_visit_explain();">
+			</div>
+			<div class="right my_visit_download">
+				{{my_visit_download_translation}}
+			</div>
+
+			<div class="my_visit_padding_top"></div>
+			{{#logged_id}}
+				<br>
+				<div class="my_visit_input my_visit_loged_in_user_info">
+					<div class="left">{{user.username}}</div>
+					<div class="right red my_visit_logout"><span onClick="web_user_logout();">{{logout}}</span></div>
+					<input type="hidden" id="my_visit_username" value="{{user.username}}">
+					<input type="hidden" id="my_visit_password" value="{{user.password}}" > 
+				</div>
+				<br><br>
+				<div class="my_visit_login">
+					<img src="assets/css/ztl_images/my_visit_questionmark.png" class="my_visit_questionmark" onclick="my_visit_explain();">&nbsp;&nbsp;&nbsp;&nbsp;
+					<div class="ztl_red_button ztl_event_search_button my_visit_login_button" onClick="web_login(0);">{{download}}</div>
+				</div>
+			{{/logged_id}}
+			{{^logged_id}}
+				<input type="text" class="my_visit_input" id="my_visit_username" placeholder="{{user_name}}" onClick="clear_field('my_visit_username');">
+				<br><br> 
+				<input type="password" class="my_visit_input" id="my_visit_password" placeholder="{{password}}" onClick="clear_field('my_visit_password');"> 
+				<br><br>
+				<div class="my_visit_login">
+					<img src="assets/css/ztl_images/my_visit_questionmark.png" class="my_visit_questionmark" onclick="my_visit_explain();">&nbsp;&nbsp;&nbsp;&nbsp;
+					<div class="ztl_red_button ztl_event_search_button my_visit_login_button" onClick="web_login(1);">{{login}}</div>
+				</div>
+			{{/logged_id}}
+		</div>	
+	</div>
+	</div>
+	
+	</div>
+	
+	<div class="footer">
+		<div class="footer_shadow"></div>
+		<div class="header_placeholder">
+			[[[ztl_footer]]]
+		</div>
+	</div>
+</div>
+</script>

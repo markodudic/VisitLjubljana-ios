@@ -1,0 +1,26 @@
+<script id="tpl_poi_filter" type="text/html">
+	<div class="poi_filter">
+		<div class="event_filter_content">
+			<div class="close_button" onClick="poi_filter_toggle();">
+				<img class="close_img" >
+			</div>
+			<div style="padding-top:50px;">
+				<div class="ztl_item_details_title">{{poi_filter_title}}</div>
+				<div class="grey_line set_filter_line"></div>
+				<div class="search_dropdown_container">
+					<select id="poi_filter_sel" class="ztl_event_type_select">
+						<option value="0">{{default_category}}</option>
+						{{#poi_filter}}
+							<option value="{{id}}" {{filter_selected}}>{{title}}</option>
+						{{/poi_filter}}
+					</select>
+				</div>
+				<div style="clear:both;"></div>
+				<div class="my_visit_padding_top"></div>
+				<div class="event_search_button_holder">
+					<div class="ztl_red_button ztl_event_search_button" onClick="opacity($(this)); is_poi_filter = 0; filter_poi();">{{potrdi_button}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>

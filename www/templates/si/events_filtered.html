@@ -1,0 +1,91 @@
+<script id="tpl_filtered_events" type="text/html">
+<div id="filtered_events" class="ztl_remove_from_page" style="overflow:hidden;">
+	<div class="header">
+		<div class="header_placeholder">
+			<div class="red_line"></div>
+			<div class="header_space"></div>
+
+			<div onClick="opacity($(this)); go_back();"><img class="header_back"></div>
+			<div><img class="header_divider"></div>
+			<div class="header_title" onClick="opacity($(this)); go_back();">{{page_title}}</div>
+
+<!--
+			<div onClick="opacity($(this)); load_page(template_lang+'events.html', 'events', trips[EVENT_GROUP], 'fade', false, EVENT_GROUP);"><img class="header_back"></div>
+			<div><img class="header_divider"></div>
+			<div class="header_title" onClick="opacity($(this)); load_page(template_lang+'events.html', 'events', trips[EVENT_GROUP], 'fade', false, EVENT_GROUP);">{{page_title}}</div>
+
+			<div class="header_dots" onClick="event_filter_toggle();"></div>
+-->
+			<div style="clear:both;"></div>
+			{{#sub_events}}
+				<div class="header_space"></div>
+			{{/sub_events}}
+			{{^sub_events}}
+				<div class="events_filter_title">
+					{{page_sub_title}}
+					<div class="events_filter_title_date">{{page_sub_title_date}}</div>
+				</div>
+			{{/sub_events}}
+		</div>
+		<div class="header_shadow"></div>
+	</div>
+	
+	[[[event_filter]]]
+
+	{{#sub_events}}
+		<div class="ztl_content">
+	{{/sub_events}}
+	{{^sub_events}}
+		<div class="ztl_content ztl_event_filter_items">
+	{{/sub_events}}
+	<div id="verticalWrapper">
+	<div id="verticalScroller">
+		<div class="ztl_red_button_filter" onClick="event_filter_toggle();">
+			{{filter_label}}
+		</div>
+
+		{{#items}}
+			<li class="ztl_list_li">
+				<div class="ztl_list_item" id="ztl_trips_item_{{id}}" onClick="load_event({{id}}, 1)" >
+					<div class="ztl_list_image">
+						<div class="ztl_list_img_crop">
+							{{#image}}
+								<img class="ztl_items_image" src="{{image}}"  style="position:relative;top:{{top}}px;">
+							{{/image}}
+							{{^image}}
+								<img class="ztl_items_no_image" src="./uploads/noimage.png">
+							{{/image}}
+						</div>
+					</div>
+					<div class="ztl_list_content">
+							<div class="ztl_list_header">{{& title}}</div>
+							<div class="ztl_list_content_text">
+								{{date}}
+								<br>
+								{{& poi_title}}
+							</div>
+							<div class="ztl_content_info_left"></div>
+							<div class="ztl_event_filter" style="background-color:#ffffff;">
+								
+							</div>
+							<div class="ztl_distance"><div id="ztl_distance_value_{{id}}"></div></div>
+							<input type="hidden" name="ztl_cord_{{id}}" value="{{id}}#{{coord_x}}#{{coord_y}}">
+					</div>
+				</div>
+				<div style="clear:both;"></div>
+				<div class="black_line"></div>
+			</li>
+		{{/items}}
+		</div>
+		</div>
+	</div>
+
+
+	<div class="footer">
+		<div class="footer_shadow"></div>
+		<div class="header_placeholder">
+			[[[ztl_footer]]]
+		</div>
+	</div>
+</div>
+</script>

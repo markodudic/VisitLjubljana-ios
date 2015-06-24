@@ -1,0 +1,50 @@
+<script id="tpl_ztl_settings" type="text/html">
+<div id="ztl_settings" class="ztl_remove_from_page" style="overflow:hidden;">
+	<div class="header">
+		<div class="header_placeholder">
+			<div class="red_line"></div>
+			<div class="header_space"></div>
+			<div class="header_title_menu">{{title}}</div>
+			<div class="header_space"></div>
+		</div>
+		<div class="header_shadow"></div>
+	</div>
+
+
+	<div class="ztl_content">	
+		<li class="ztl_list_li ztl_settings_li">
+			<div class="ztl_list_item ztl_list_header ztl_settings_text" onClick="add_to_history('fun--main_settings--empty'); choose_language();">{{set_language}}</div>
+		</li> 
+		<div class="black_line"></div>
+
+		<li class="ztl_list_li ztl_settings_li">
+			<div class="ztl_list_item ztl_list_header ztl_settings_text" onClick="add_to_history('fun--main_settings--empty'); synhronization();">{{synchronization}}</div>
+		</li>
+		<div class="black_line"></div>
+
+		<li class="ztl_list_li ztl_settings_li">
+			<div class="ztl_list_item ztl_list_header ztl_settings_text" onClick="rate();">{{rate}}</div>
+		</li>
+		<div class="black_line"></div>
+
+		<li class="ztl_list_li ztl_settings_li">
+			<div class="ztl_list_item ztl_list_header ztl_settings_text" onClick="add_to_history('fun--main_settings--empty'); about();">{{about}}</div>
+		</li>
+		<div class="black_line"></div>
+
+		{{#android}}
+			<li class="ztl_list_li ztl_settings_li exit_menu">
+				<div class="ztl_list_item ztl_list_header ztl_settings_text" onClick="exit();">{{exit}}</div>
+			</li>
+		{{/android}}
+		<div class="black_line"></div>
+
+	</div>
+	<div class="footer">
+		<div class="footer_shadow"></div>
+		<div class="header_placeholder">
+			[[[ztl_footer]]]
+		</div>
+	</div>
+</div>
+</script>

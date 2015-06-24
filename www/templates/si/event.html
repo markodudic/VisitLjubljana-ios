@@ -1,0 +1,185 @@
+<script id="tpl_event" type="text/html">
+<div id="event_{{item.id}}" class="ztl_remove_from_page" style="overflow:hidden;">
+	<div class="header">
+		<div class="header_placeholder">
+			<div class="red_line"></div>
+			<div class="header_space"></div>
+
+			<div onClick="opacity($(this)); go_back();"><img class="header_back"></div>
+			<div><img class="header_divider"></div>
+			<div class="header_title" onClick="opacity($(this)); go_back();">
+				<div class="marquee">
+					{{& item.title}}
+				</div>
+			</div>
+
+<!--
+			{{#is_sub_event}}
+				{{#has_sub_events}}
+					<div onClick="opacity($(this)); load_page(template_lang+'events.html', 'events', trips[EVENT_GROUP], 'fade', false, EVENT_GROUP);"><img class="header_back"></div>
+					<div><img class="header_divider"></div>
+					<div class="header_title" onClick="opacity($(this)); load_page(template_lang+'events.html', 'events', trips[EVENT_GROUP], 'fade', false, EVENT_GROUP);">
+						<div class="marquee">
+							{{& item.title}}
+						</div>
+					</div>
+				{{/has_sub_events}}
+				{{^has_sub_events}}
+					<div onClick="opacity($(this)); load_event({{sub_events_id}}, 1); is_sub_event = 0;"><img class="header_back"></div>
+					<div><img class="header_divider"></div>
+					<div class="header_title" onClick="opacity($(this)); load_event({{sub_events_id}}, 1); is_sub_event = 0;">
+						<div class="marquee">
+							{{& item.title}}
+						</div>
+					</div>
+				{{/has_sub_events}}
+			{{/is_sub_event}}
+			{{^is_sub_event}}
+				<div onClick="opacity($(this)); load_page(template_lang+'events.html', 'events', trips[EVENT_GROUP], 'fade', false, EVENT_GROUP);"><img class="header_back"></div>
+				<div><img class="header_divider"></div>
+				<div class="header_title" onClick="opacity($(this)); load_page(template_lang+'events.html', 'events', trips[EVENT_GROUP], 'fade', false, EVENT_GROUP);">
+					<div class="marquee">
+						{{& item.title}}
+					</div>
+				</div>
+			{{/is_sub_event}}
+-->
+			<!--div class="header_dots" onClick="event_filter_toggle();"></div-->
+			<div style="clear:both;"></div>
+			<div class="header_space"></div>
+		</div>
+		<div class="header_shadow"></div>
+	</div>
+	
+	[[[event_filter]]]
+	
+	<div class="ztl_content ztl_content_extra">
+	
+	<div id="verticalWrapper">
+	<div id="verticalScroller">
+
+		<div class="ztl_navigate_events">
+			<!-- div class="ztl_item_shadow"></div -->
+			<div class="ztl_img_distance_container">
+				<div class="ztl_distance_img">
+					<img class="ztl_distance_arrow_img" src="assets/css/ztl_images/distance.png" >
+					<div class="ztl_distance ztl_distance_poi"><div id="ztl_distance_value_{{item.id}}"></div></div>
+				</div>
+			</div>
+			<input type="hidden" name="ztl_cord_{{item.id}}" value="{{item.id}}#{{item.coord_x}}#{{item.coord_y}}">
+
+			{{#item.image}}
+				<div class="ztl_item_details_image">
+					<div class="ztl_details_img_crop">
+						<img class="ztl_details_image" src="{{item.image}}"  style="position:relative;top:{{item.top}}px;">
+					</div>
+				</div>
+			{{/item.image}}
+			{{^item.image}}
+				<img class="ztl_details_image" src="./uploads/noimage_detail.png">
+			{{/item.image}}
+			<div style="clear:both;"></div>
+			<div class="ztl_item_content_padding">
+				<div class="ztl_item_buttons">
+					<div id="map_button" class="ztl_red_button ztl_item_left_button" onclick="load_show_map({{item.id}}, EVENT_GROUP, 0)">{{map_button}}</div>
+					<div class="ztl_red_button ztl_item_right_button" onClick="add_to_my_visit({{item.id}},EVENT_GROUP,0,0,0);">MYVISIT</div>
+				</div>
+				<br>
+				{{#sound}}
+				<div onClick="play_voice_guide({{id}});" class="ztl_grey_button" style="position:relative;">
+					<div class="sound_img">
+						<img src="assets/css/ztl_images/icon_2.png" style="height:27px;">
+					</div> 
+					<div class="sound_txt">{{guide_button}}</div>
+				</div>
+				{{/sound}}
+
+				<div class="ztl_item_details">
+					{{#item.intro}}
+						<div class="ztl_item_details_title" style="text-transform:uppercase;">{{ztl_item_details_description}}</div>
+						<div class="grey_line"></div>
+						<div class="ztl_item_details_desc">
+							{{& item.intro}}
+							{{& item.description}}
+						</div>
+					{{/item.intro}}
+
+					{{#has_venue}}
+						<div id="ztl_item_details_venue" class="ztl_item_details_title" style="text-transform:uppercase;">{{ztl_item_details_venue}}</div>
+						<div class="grey_line"></div>
+						{{#venue}}
+							<div class="ztl_item_details_desc">
+								{{& date}}<br>{{& venue}}
+							</div>
+						{{/venue}}
+					{{/has_venue}}
+
+					{{#has_pricing}}
+						<div id="ztl_item_details_price" class="ztl_item_details_title" style="text-transform:uppercase;">{{ztl_item_details_price}}</div>
+						<div class="grey_line"></div>
+						{{#pricing}}
+							<div class="ztl_item_details_desc">
+								{{#ticket_type}}
+									{{& ticket_type}}:&nbsp;
+								{{/ticket_type}}
+								{{& price}}<br>
+							</div>
+						{{/pricing}}
+					{{/has_pricing}}
+
+					{{#has_sub_events}}
+						<div id="ztl_item_details_price" class="ztl_item_details_title" style="text-transform:uppercase;">{{ztl_item_sub_events}}</div>
+						<div class="grey_line"></div>
+					{{/has_sub_events}}
+				</div>
+			</div>
+
+			{{#has_sub_events}}
+				{{#sub_events}}
+					<li class="ztl_list_li">
+						<div class="ztl_list_item" id="ztl_trips_item_{{id}}" onClick="load_event({{id}}, 1)" >
+							<div class="ztl_list_image">
+								<div class="ztl_list_img_crop">
+									{{#image}}
+										<img class="ztl_items_image" src="{{image}}"  style="position:relative;top:{{top}}px;">
+									{{/image}}
+									{{^image}}
+										<img class="ztl_items_no_image" src="./uploads/noimage.png">
+									{{/image}}
+								</div>
+							</div>
+							<div class="ztl_list_content">
+									<div class="ztl_list_header">{{& title}}</div>
+									<div class="ztl_list_content_text">
+										{{date}}
+										<br>
+										{{& poi_title}}
+									</div>
+									<div class="ztl_content_info_left"></div>
+									<div class="ztl_event_filter" style="background-color:#ffffff;">
+								
+									</div>
+									<div class="ztl_distance"><div id="ztl_distance_value_{{id}}"></div></div>
+									<input type="hidden" name="ztl_cord_{{id}}" value="{{id}}#{{coord_x}}#{{coord_y}}">
+							</div>
+						</div>
+						<div style="clear:both;"></div>
+						<div class="black_line"></div>
+					</li>
+				{{/sub_events}}
+			{{/has_sub_events}}
+
+			<div class="ztl_distance_to_footer">&nbsp;</div>
+		</div>
+	</div>
+	</div>
+
+	</div>
+	<div class="footer">
+		<div class="footer_shadow"></div>
+		<div class="header_placeholder">
+			[[[ztl_footer]]]
+		</div>
+	</div>
+</div>
+</script>

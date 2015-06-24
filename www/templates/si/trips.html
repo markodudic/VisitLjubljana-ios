@@ -1,0 +1,94 @@
+<script id="tpl_trips" type="text/html">
+<div id="trips_{{extra_div_id}}" class="ztl_remove_from_page" style="overflow:hidden;">
+	<div class="header">
+		<div class="header_placeholder">
+			<div class="red_line"></div>
+			<div class="header_space"></div>
+
+			<div onClick="opacity($(this)); go_back();"><img class="header_back"></div>
+			<div><img class="header_divider"></div>
+			<div class="header_title" onClick="opacity($(this)); go_back();">{{page_title}}</div>
+			{{#dots}}
+				<div class="header_dots" onClick="add_to_history('fun--guide_settings--empty'); load_page(template_lang+'ztl_guide_settings.html', 'ztl_guide_settings', null, 'fade', false);"></div>
+			{{/dots}}
+			<div style="clear:both;"></div>
+			{{#title_poi_filter_show}}
+				<div class="events_filter_title">
+					{{title_poi_filter}}
+				</div>
+			{{/title_poi_filter_show}}
+			{{^title_poi_filter_show}}
+				<div class="header_space"></div>
+			{{/title_poi_filter_show}}
+		</div>
+		{{^filter}}
+			<div class="header_shadow"></div>
+		{{/filter}}
+	</div>
+	
+	[[[poi_filter]]]
+	
+
+	{{#title_poi_filter_show}}
+		<div class="ztl_content ztl_event_filter_items">
+	{{/title_poi_filter_show}}
+	{{^title_poi_filter_show}}
+		<div class="ztl_content">	
+	{{/title_poi_filter_show}}
+	
+	<div id="verticalWrapper">
+	<div id="verticalScroller">
+
+	{{#filter}}
+		<div class="ztl_red_button_filter" onClick="poi_filter_toggle();">
+			{{filter_label}}
+		</div>
+	{{/filter}}
+
+	{{#items}}
+		<li class="ztl_list_li">
+			<div class="ztl_list_item" id="ztl_trips_item_{{id}}" onClick="load_poi({{id}}, 'fade', true, 1)">
+				<div class="ztl_list_image">
+					<div class="ztl_list_img_crop">
+						{{#image}}
+							<img class="ztl_items_image" src="{{image}}" style="position:relative;top:{{top}}px;">
+						{{/image}}
+						{{^image}}
+							<img class="ztl_items_no_image" src="./uploads/noimage.png">
+						{{/image}}
+					</div>
+				</div>
+
+				<div class="ztl_list_content">
+						<div class="ztl_list_header">{{& title}}</div>
+						<div class="ztl_list_content_text">
+							{{#address}}{{& address}},{{/address}}{{#post_number}} {{post_number}}{{/post_number}}{{#post}} {{& post}}{{/post}}
+						</div>
+						<div class="ztl_content_info_left"></div>
+						{{#stars}}
+							<div class="ztl_star">
+								<img src="assets/css/ztl_images/star_{{star}}.png" class="img_star">
+							</div>
+						{{/stars}}
+						<div class="ztl_distance"><div id="ztl_distance_value_{{id}}"></div></div>
+						<input type="hidden" name="ztl_cord_{{id}}" value="{{id}}#{{coord_x}}#{{coord_y}}">
+				</div>
+			</div>
+			<div style="clear:both;"></div>
+			<div class="black_line"></div>
+		</li>
+	{{/items}}
+	</div>
+	</div>
+	
+	</div>
+
+
+	<div class="footer">
+		<div class="footer_shadow"></div>
+		<div class="header_placeholder">
+			[[[ztl_footer]]]
+		</div>
+	</div>
+</div>
+</script>

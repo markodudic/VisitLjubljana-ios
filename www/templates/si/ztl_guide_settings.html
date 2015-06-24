@@ -1,0 +1,20 @@
+<script id="tpl_ztl_guide_settings" type="text/html">
+<div id="ztl_guide_settings" class="ztl_remove_from_page" style="overflow:hidden;">
+		<div class="event_filter_content">
+			<div class="close_button" onClick="load_guide_buy();">
+				<img class="close_img" >
+			</div>
+		</div>
+		<br>
+		<div class="black_line line_gray"></div>
+		<li class="ztl_list_li ztl_settings_li">
+			<div class="ztl_list_item ztl_list_header ztl_settings_text" onclick="load_show_map(0, VOICE_GROUP);">{{show_on_map}}</div>
+		</li>
+		<div class="black_line line_gray"></div>
+
+		<li class="ztl_list_li ztl_settings_li">
+			<div class="ztl_list_item ztl_list_header ztl_settings_text" onClick="add_to_history('fun--load_my_visit--empty'); add_to_myvisit(trips[VOICE_GROUP]);">{{add_to_myvisit}}</div>
+		</li> 
+		<div class="black_line line_gray"></div>
+</div>
+</script>

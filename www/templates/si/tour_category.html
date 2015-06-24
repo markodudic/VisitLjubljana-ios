@@ -1,0 +1,57 @@
+<script id="tpl_tour_category" type="text/html">
+<div id="tour_category" class="ztl_remove_from_page" style="overflow:hidden;">
+	<div class="header">
+		<div class="header_placeholder">
+			<div class="red_line"></div>
+			<div class="header_space"></div>
+			<div onClick="opacity($(this)); go_back();"><img class="header_back"></div>
+			<div><img class="header_divider"></div>
+			<div class="header_title" onClick="opacity($(this)); go_back();">{{page_title}}</div>
+			<div style="clear:both;"></div>
+			<div class="header_space"></div>
+		</div>
+		<div class="header_shadow"></div>
+	</div>
+	
+	<div class="ztl_content">
+	
+	<div id="verticalWrapper">
+	<div id="verticalScroller">
+	{{#items}}
+		<li class="ztl_list_li">
+			<div class="ztl_list_item" id="ztl_trips_item_{{id}}" onClick="add_to_history('fun--load_tours_category--empty'); load_page(template_lang+'tours.html', 'tours', trips[TOUR_LIST_GROUP].tours[{{id}}], 'fade', false, {{id}});" >
+				<div class="ztl_list_image">
+					<div class="ztl_list_img_crop">
+						{{#image}}
+							<img class="ztl_items_image_2" src="{{image}}"  style="position:relative;top:{{top}}px;">
+						{{/image}}
+						{{^image}}
+							<img class="ztl_items_no_image" src="./uploads/noimage.png">
+						{{/image}}
+					</div>
+				</div>
+				<div class="ztl_list_content">
+						<div class="ztl_list_header">{{& title}}</div>
+						<div class="ztl_list_content_text">
+							&nbsp;
+						</div>
+						<div class="ztl_content_info_left"></div>
+				</div>
+			</div>
+			<div style="clear:both;"></div>
+			<div class="black_line"></div>
+		</li>
+	{{/items}}
+	</div>
+	</div>
+	
+	</div>
+	
+	<div class="footer">
+		<div class="footer_shadow"></div>
+		<div class="header_placeholder">
+			[[[ztl_footer]]]
+		</div>
+	</div>
+</div>
+</script>

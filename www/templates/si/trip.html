@@ -1,0 +1,138 @@
+<script id="tpl_trip" type="text/html">
+<div id="trip_{{id}}" class="ztl_remove_from_page" style="overflow:hidden;">
+	<div class="header">
+		<div class="header_placeholder">
+			<div class="red_line"></div>
+			<div class="header_space"></div>
+
+			<div onClick="opacity($(this)); go_back();"><img class="header_back"></div>
+			<div><img class="header_divider"></div>
+			<div class="header_title" onClick="opacity($(this)); go_back();">
+				<div class="marquee">
+					{{& title}}
+				</div>
+			</div>
+			<div style="clear:both;"></div>
+			<div class="header_space"></div>
+		</div>
+		<div class="header_shadow"></div>
+	</div>
+
+	<div class="media_payer">
+		<div style="width:95%; text-align:right; padding-top:20px;" onClick="set_media_state(0); media_control_stop();">
+			<img class="close_img" >
+		</div>
+		<div style="position:absolute; width:100%; height:80%; text-align:center; bottom:0;" onClick="media_control_toggle();">
+			<div class="media_player_title">{{title}}</div>
+			<br>
+			<div class="media_player_contorl">
+				<canvas id="myCanvas" width="250" height="250" class="player_stop_back"></canvas>
+				<img class="player_control_image media_player_contorl_button" src="assets/css/ztl_images/media_player_play_start.png">
+			</div>
+			<br>
+			<div class="media_player_title"><span class="media_player_time" style="color:#ea1b25;">0:00</span>&nbsp/&nbsp;{{media_duration_string}}</div>
+		</div>
+	</div>
+	<div class="ztl_content ztl_content_extra">
+	
+	<div id="verticalWrapper">
+	<div id="verticalScroller">
+
+		<div class="ztl_navigate_events">
+			<div class="ztl_item_details_image">
+				{{#stars}}
+					<div class="ztl_item_shadow"></div>
+					<div class="ztl_img_star">
+						<img src="assets/css/ztl_images/star_{{star}}.png" class="img_star">
+					</div>
+				{{/stars}}
+
+				<div class="ztl_img_distance_container">
+					<div class="ztl_distance_img">
+						<img class="ztl_distance_arrow_img" src="assets/css/ztl_images/distance.png" >
+						<div class="ztl_distance ztl_distance_poi"><div id="ztl_distance_value_{{id}}"></div></div>
+					</div>
+				</div>
+				<input type="hidden" name="ztl_cord_{{id}}" value="{{id}}#{{coord_x}}#{{coord_y}}">
+
+				<div class="ztl_details_img_crop">
+					{{#image}}
+						<img class="ztl_details_image" src="{{image}}" style="position:relative;top:{{top}}px;">
+					{{/image}}
+					{{^image}}
+						<img class="ztl_details_image" src="./uploads/noimage_detail.png">
+					{{/image}}
+				</div>
+			</div>
+
+			<div style="clear:both;"></div>
+
+			<div class="ztl_item_content_padding">
+				<div class="ztl_item_buttons">
+					<div id="map_button" class="ztl_red_button ztl_item_left_button" onclick="load_show_map({{id}}, POI_GROUP, {{id_group}})">{{map_button}}</div>
+					<div class="ztl_red_button ztl_item_right_button" onClick="add_to_my_visit({{id}},POI_GROUP,0,0,0);">MYVISIT</div>
+				</div>
+				<br>
+
+				{{#sound}}
+				<div onClick="set_media_state(1); play_voice_guide({{id}});" class="ztl_grey_button" style="position:relative;">
+					<div class="sound_img">
+						<img src="assets/css/ztl_images/icon_2.png" class="sound_icon">
+					</div> 
+					<div class="sound_txt">{{guide_button}}</div>
+				</div>
+				{{/sound}}
+
+				{{#address_title}}
+					<div style="clear:both;"></div>
+					<div class="ztl_item_details">
+						<div id="ztl_item_details_title" class="ztl_item_details_title">{{ztl_item_details_title}}</div>
+						<div class="grey_line"></div>
+					</div>
+				{{/address_title}}
+
+				<div style="clear:both;"></div>
+				<div class="ztl_item_details ztl_item_details_text">
+					{{#address}}{{address}},{{/address}}
+					{{#post_number}} {{post_number}}{{/post_number}}
+					{{#post}} {{post}}{{/post}}
+					{{#phone}}
+						<div class="red">
+							<img src="assets/css/ztl_images/phone.png" class="img_connection">
+							<a href="tel:{{phone}}">{{phone}}</a>
+						</div>
+					{{/phone}}
+					{{#email}}
+						<div class="red">
+							<img src="assets/css/ztl_images/mail.png" class="img_connection"> 
+							<a href="mailto:{{email}}">{{email}}</a>
+						</div>
+					{{/email}}
+					{{#www}}
+						<div class="red">
+							<img src="assets/css/ztl_images/mouse.png" class="img_connection"> 
+							<a href="{{www}}" onclick="window.open(this.href,'_system'); return false;">{{www}}</a>
+						</div>
+					{{/www}}
+				</div>
+
+				<div class="ztl_item_details">
+					<div class="ztl_item_details_desc">
+						{{& description}}
+					</div>
+				</div> 
+				<div class="ztl_distance_to_footer">&nbsp;</div>			
+			</div>
+		</div>
+	</div>
+	</div>
+
+	</div>
+	<div class="footer">
+		<div class="footer_shadow"></div>
+		<div class="header_placeholder">
+			[[[ztl_footer]]]
+		</div>
+	</div>
+</div>
+</script>

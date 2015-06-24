@@ -1,0 +1,35 @@
+<script id="tpl_event_filter" type="text/html">
+	<div class="event_filter">
+		<div class="event_filter_content">
+			<div class="close_button" onClick="event_filter_toggle();">
+				<img class="close_img">
+			</div>
+			<div style="padding-top:50px;">
+				<div class="ztl_item_details_title">{{events_title}}</div>
+				<div class="grey_line set_filter_line"></div>
+				<div class="search_dropdown_container">
+					<select id="event_type" class="ztl_event_type_select">
+						<option value="0">{{default_category}}</option>
+						{{#categories}}
+							<option value="{{id}}" {{filter_selected}}>{{title}}</option>
+						{{/categories}}
+					</select>
+				</div>
+				<div style="padding-bottom:15px; padding-top:15px;">
+					<div class="event_search_filds_left">
+						<input type="text" id="ztl_trip_filter_date_from" class="ztl_event_search_field" onClick="dprun(this)" onBlur="dpend(this)" value="{{event_date_from}}">
+						<input type="hidden" id="ztl_trip_filter_date_from_hidden" value="{{event_date_from_sql}}">
+					</div>
+					<div class="event_search_filds_right">
+						<input type="text" id="ztl_trip_filter_date_to" class="ztl_event_search_field" onFocus="dprun(this)" onBlur="dpend(this)" value="{{event_date_to}}">
+						<input type="hidden" id="ztl_trip_filter_date_to_hidden" value="{{event_date_to_sql}}">
+					</div>
+				</div>
+				<div style="clear:both;"></div>
+				<div class="event_search_button_holder">
+					<div class="ztl_red_button ztl_event_search_button" onClick="opacity($(this)); is_event_filter = 0; filter_events();">{{potrdi_button}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>

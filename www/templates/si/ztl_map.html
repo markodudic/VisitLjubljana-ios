@@ -1,0 +1,51 @@
+<script id="tpl_ztl_map" type="text/html">
+<div id="ztl_map" class="ztl_remove_from_page" style="overflow:hidden;">
+	<div class="header">
+		<div class="header_placeholder">
+			<div class="red_line"></div>
+			<div class="header_space"></div>
+			<div><img class="header_back" onClick="opacity($(this)); go_back();"></div>
+			<div><img class="header_divider"></div>
+			<div class="header_title" onClick="opacity($(this)); go_back();">{{title}}</div>
+			<div class="header_dots" onClick="map_settings_toggle();"></div>
+			<div style="clear:both;"></div>
+			<div class="header_space"></div>
+		</div>
+		<div class="header_shadow"></div>
+	</div>
+
+	[[[map_settings]]]
+
+	<div class="ztl_content map_ztl_content">
+		<div id="navigation" style="z-index:1000; position: absolute; background-color: transparent; bottom: 20px; left: 20px">
+			<img id="plus">
+			<img id="minus">
+			<img id="my_location">
+		</div>
+        <div id="map" class="map"></div>
+		<div class="txt_popup">
+			<img class="img_popup">
+			<div class="popup_left">
+				<div id="poi_title"></div>
+				<div id="poi_address"></div>
+			</div>
+			<div class="popup_right">
+				<div class="ztl_distance_value" id="ztl_distance_value"></div>
+				<input type="hidden" id="ztl_cord" name="ztl_cord_" value="{{id}}#{{coord_x}}#{{coord_y}}">
+						
+				<div id="poi_icons">
+					<img class="map_info">
+					<img class="map_direction" onclick="show_system_maps()">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<div class="footer_shadow"></div>
+		<div class="header_placeholder">
+			[[[ztl_footer]]]
+		</div>
+	</div>
+</div>
+</script>

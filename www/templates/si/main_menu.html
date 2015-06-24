@@ -1,0 +1,85 @@
+<script id="tpl_main_menu" type="text/html">
+<div id="main_menu" class="ztl_remove_from_page" style="overflow:hidden;">
+	<div class="header">
+		<div class="header_placeholder">
+			<div class="red_line"></div>
+			<div class="header_space"></div>
+			<div class="header_title_menu">{{title}}</div>
+			<div class="header_space"></div>
+		</div>
+		<div class="header_shadow"></div>
+	</div>
+	<div class="ztl_content">	
+	
+	<div id="verticalWrapper">
+	<div id="verticalScroller">
+
+		<div class="ui-grid-solo ztl_height_260" style="background-image:url('assets/css/ztl_images/main_menu/get_inspired.png');" onClick="add_to_history('main_menu--'+INSPIRED_GROUP); load_page(template_lang+'inspired.html', 'inspired', trips[INSPIRED_GROUP], 'fade', false, INSPIRED_GROUP);">
+			<div class="ztl_main_menu_text">
+				{{img1}}
+			</div>
+		</div>
+		<div class="ui-grid-a ztl_height_170" >
+			<div class="ui-block-a ztl_height_170" style="background-image:url('assets/css/ztl_images/main_menu/prireditve.png');" onClick="add_to_history('main_menu--'+EVENT_GROUP); load_page(template_lang+'events.html', 'events', trips[EVENT_GROUP], 'fade', false, EVENT_GROUP);">
+				<div class="ztl_main_menu_text">
+					{{img2}}
+				</div>
+			</div>
+			<div class="ui-block-b ztl_height_170" style="background-image:url('assets/css/ztl_images/main_menu/znamenitosti.png');" onClick="add_to_history('main_menu--'+POI_ZAMENITOSTI_GROUP); load_page(template_lang+'trips.html', 'trips', trips[POI_ZAMENITOSTI_GROUP], 'fade', false, POI_ZAMENITOSTI_GROUP);">
+				<div class="ztl_main_menu_text">
+					{{img3}}
+				</div>
+			</div>
+		</div>
+		<div class="ui-grid-solo ztl_height_260" style="background-image:url('assets/css/ztl_images/main_menu/kulinarika.png');" onClick="add_to_history('main_menu--'+POI_KULINARIKA_GROUP); load_page(template_lang+'trips.html', 'trips', trips[POI_KULINARIKA_GROUP], 'fade', false, POI_KULINARIKA_GROUP);" >
+			<div class="ztl_main_menu_text">
+				{{img4}}
+			</div>
+		</div>
+		<div class="ui-grid-a ztl_height_170" >
+			<div class="ui-block-a ztl_height_170" style="background-image:url('assets/css/ztl_images/main_menu/info.png');" onClick="add_to_history('main_menu--'+INFO_GROUP); load_page(template_lang+'infos.html', 'infos', trips[INFO_GROUP], 'fade', false, INFO_GROUP);">
+				<div class="ztl_main_menu_text">
+					{{img5}}
+				</div>
+			</div>
+			<div class="ui-block-b ztl_height_170" style="background-image:url('assets/css/ztl_images/main_menu/nastanitve.png');" onClick="add_to_history('main_menu--'+POI_NASTANITVE_GROUP); load_page(template_lang+'trips.html', 'trips', trips[POI_NASTANITVE_GROUP], 'fade', false, POI_NASTANITVE_GROUP);" >
+				<div class="ztl_main_menu_text">
+					{{img7}}
+				</div>
+			</div>
+		</div>
+		<div class="ui-block-solo ztl_height_260" style="background-image:url('assets/css/ztl_images/main_menu/ogledi.png');" onClick="add_to_history('main_menu--'+TOUR_LIST_GROUP); load_page(template_lang+'tour_category.html', 'tour_category', trips[TOUR_LIST_GROUP], 'fade', false, TOUR_LIST_GROUP);">
+			<div class="ztl_main_menu_text">
+				{{img6}}
+			</div>
+		</div>
+		<div class="ui-grid-a ztl_height_170" >
+			<div class="ui-block-a ztl_height_170" style="background-image:url('assets/css/ztl_images/main_menu/zabava.png');" onClick="add_to_history('main_menu--'+POI_ZABAVA_GROUP); load_page(template_lang+'trips.html', 'trips', trips[POI_ZABAVA_GROUP], 'fade', false, POI_ZABAVA_GROUP);">
+				<div class="ztl_main_menu_text">
+					{{img8}}
+				</div>
+			</div>
+			<div class="ui-block-b ztl_height_170" style="background-image:url('assets/css/ztl_images/main_menu/nakupovanje.png');" onClick="add_to_history('main_menu--'+POI_NAKUPOVANJE_GROUP); load_page(template_lang+'trips.html', 'trips', trips[POI_NAKUPOVANJE_GROUP], 'fade', false, POI_NAKUPOVANJE_GROUP);">
+				<div class="ztl_main_menu_text">
+					{{img9}}
+				</div>
+			</div>
+		</div>
+		<div class="ui-grid-solo ztl_height_260" style="background-image:url('assets/css/ztl_images/main_menu/kraji.png');" onClick="add_to_history('main_menu--'+POIGROUP_GROUP); load_page(template_lang+'poigroups.html', 'poigroups', trips[POIGROUP_GROUP], 'fade', false, POIGROUP_GROUP);">
+			<div class="ztl_main_menu_text">
+				{{img10}}
+			</div>
+		</div>
+
+	</div>
+	</div>
+
+	<div class="footer">
+		<div class="footer_shadow"></div>
+		<div class="header_placeholder">
+			[[[ztl_footer]]]
+		</div>
+	</div>
+	
+</div>
+</script>

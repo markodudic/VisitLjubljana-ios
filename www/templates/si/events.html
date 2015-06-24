@@ -1,0 +1,152 @@
+<script id="tpl_events" type="text/html">
+<div id="events" class="ztl_remove_from_page" style="overflow:hidden;">
+	<div class="header">
+		<div class="header_placeholder">
+			<div class="red_line"></div>
+			<div class="header_space"></div>
+			<div onClick="opacity($(this)); go_back();"><img class="header_back"></div>
+			<div><img class="header_divider"></div>
+			<div class="header_title" onClick="opacity($(this)); go_back();">{{page_title}}</div>
+			<div class="header_synhronization" onClick="synhronization_force();">
+				<img class="header_synhronization_image">
+			</div>
+			<div style="clear:both;"></div>
+			<div class="header_space"></div>
+		</div>
+		<!--div class="header_shadow"></div-->
+	</div>
+	
+	[[[event_filter]]]
+
+
+	<div class="ztl_content">
+
+	<div id="verticalWrapper">
+	<div id="verticalScroller">
+
+	<div class="ztl_red_button_filter" onClick="event_filter_toggle();">
+		{{filter_label}}
+	</div>
+
+	<!--div class="ui-grid-solo ztl_height_260" >
+		<div class="ui-block-a ztl_height_260" onClick="load_event({{top_events_0.id}}, 1)">
+			<img class="ztl_items_image_260" src="{{top_events_0.image}}">
+			<div class="event_date_holder">
+				<div class="event_date_holder_top">
+					{{top_events_0.day}}
+				</div>
+				<div class="event_date_holder_bottom">
+					{{top_events_0.month}}
+				</div>
+			</div>
+			<div class="ztl_top_event_text_big"></div>
+			<div class="ztl_top_event_text_half_text">{{& top_events_0.title}}</div>
+		</div>
+	</div>	
+	<div class="ui-grid-a ztl_height_170" >
+		<div class="ui-block-a ztl_height_170" onClick="load_event({{top_events_1.id}}, 1)">
+			<img class="ztl_items_image_170" src="{{top_events_1.image}}" style="position:relative;top:{{top_events_1.top}}px;">
+			<div class="event_date_holder" >
+				<div class="event_date_holder_top">
+					{{top_events_1.day}}
+				</div>
+				<div class="event_date_holder_bottom">
+					{{top_events_1.month}}
+				</div>
+			</div>
+			<div class="ztl_top_event_text_half"></div>
+			<div class="ztl_top_event_text_half_text">{{& top_events_1.title}}</div>
+		</div>
+		<div class="ui-block-b ztl_height_170" onClick="load_event({{top_events_2.id}}, 1)">
+			<img class="ztl_items_image_170" src="{{top_events_2.image}}" style="position:relative;top:{{top_events_2.top}}px;">
+			<div class="event_date_holder">
+				<div class="event_date_holder_top">
+					{{top_events_2.day}}
+				</div>
+				<div class="event_date_holder_bottom">
+					{{top_events_2.month}}
+				</div>
+			</div>
+			<div class="ztl_top_event_text_big"></div>
+			<div class="ztl_top_event_text_half_text">{{& top_events_2.title}}</div>
+		</div>
+	</div>
+	<div class="ui-grid-a ztl_height_170" >
+		<div class="ui-block-a ztl_height_170" onClick="load_event({{top_events_3.id}}, 1)">
+			<img class="ztl_items_image_170" src="{{top_events_3.image}}" style="position:relative;top:{{top_events_3.top}}px;">
+			<div class="event_date_holder" >
+				<div class="event_date_holder_top">
+					{{top_events_3.day}}
+				</div>
+				<div class="event_date_holder_bottom">
+					{{top_events_3.month}}
+				</div>
+			</div> 
+			<div class="ztl_top_event_text_half"></div>
+			<div class="ztl_top_event_text_half_text">{{& top_events_3.title}}</div>
+		</div>
+		<div class="ui-block-b ztl_height_170" onClick="load_event({{top_events_4.id}}, 1)">
+			<img class="ztl_items_image_170" src="{{top_events_4.image}}" style="position:relative;top:{{top_events_4.top}}px;">
+			<div class="event_date_holder">
+				<div class="event_date_holder_top">
+					{{top_events_4.day}}
+				</div>
+				<div class="event_date_holder_bottom">
+					{{top_events_4.month}}
+				</div>
+			</div>
+			<div class="ztl_top_event_text_big"></div>
+			<div class="ztl_top_event_text_half_text">{{& top_events_4.title}}</div>
+		</div>
+	</div-->
+
+	{{#items}}
+	{{#important}}
+		<li class="ztl_list_li">
+			<div class="ztl_list_item" id="ztl_trips_item_{{id}}" onClick="load_event({{id}}, 1)" >
+				<div class="ztl_list_image">
+					<div class="ztl_list_img_crop">
+						{{#image}}
+							<img class="ztl_items_image" src="{{image}}"  style="position:relative;top:{{top}}px;">
+						{{/image}}
+						{{^image}}
+							<img class="ztl_items_no_image" src="./uploads/noimage.png">
+						{{/image}}
+					</div>
+				</div>
+				<div class="ztl_list_content">
+						<div class="ztl_list_header">{{& title}}</div>
+
+
+						<div class="ztl_list_content_text">
+							{{date}}
+							<br>
+							{{& poi_title}}
+						</div>
+						<div class="ztl_content_info_left"></div>
+						<div class="ztl_star">
+							
+						</div>
+						<div class="ztl_distance"><div id="ztl_distance_value_{{id}}"></div></div>
+						<input type="hidden" name="ztl_cord_{{id}}" value="{{id}}#{{coord_x}}#{{coord_y}}">
+				</div>
+			</div>
+			<div style="clear:both;"></div>
+			<div class="black_line"></div>
+		</li>
+	{{/important}}
+	{{/items}}
+	</div>
+	</div>
+	
+	</div>
+
+	
+	<div class="footer">
+		<div class="footer_shadow"></div>
+		<div class="header_placeholder">
+			[[[ztl_footer]]]
+		</div>
+	</div>
+</div>
+</script>

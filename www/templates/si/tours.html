@@ -1,0 +1,64 @@
+<script id="tpl_tours" type="text/html">
+<div id="tours" class="ztl_remove_from_page" style="overflow:hidden;">
+	<div class="header">
+		<div class="header_placeholder">
+			<div class="red_line"></div>
+			<div class="header_space"></div>
+
+			<div onClick="opacity($(this)); go_back();"><img class="header_back"></div>
+			<div><img class="header_divider"></div>
+			<div class="header_title" onClick="opacity($(this)); go_back();">{{page_title}}</div>
+
+<!--
+			<div onClick="opacity($(this)); load_page(template_lang+'tour_category.html', 'tour_category', trips[TOUR_LIST_GROUP], 'fade', false, TOUR_LIST_GROUP);"><img class="header_back"></div>
+			<div><img class="header_divider"></div>
+			<div class="header_title" onClick="opacity($(this)); load_page(template_lang+'tour_category.html', 'tour_category', trips[TOUR_LIST_GROUP], 'fade', false, TOUR_LIST_GROUP);">{{page_title}}</div>
+-->
+			<div style="clear:both;"></div>
+			<div class="header_space"></div>
+		</div>
+		<div class="header_shadow"></div>
+	</div>
+	
+	<div class="ztl_content">
+	
+	<div id="verticalWrapper">
+	<div id="verticalScroller">
+	{{#items}}
+		<li class="ztl_list_li">
+			<div class="ztl_list_item" id="ztl_trips_item_{{id}}" onClick="add_to_history('fun--load_tours_menu--{{tour_category_id}}'); load_tour({{id}}, 1)" >
+				<div class="ztl_list_image">
+					<div class="ztl_list_img_crop">
+						{{#image}}
+							<img class="ztl_items_image" src="{{image}}"  style="position:relative;top:{{top}}px;">
+						{{/image}}
+						{{^image}}
+							<img class="ztl_items_no_image" src="./uploads/noimage.png">
+						{{/image}}
+					</div>
+				</div>
+				<div class="ztl_list_content">
+						<div class="ztl_list_header">{{& title}}</div>
+						<!--div class="ztl_list_content_text">
+							{{& short_description}}
+						</div>
+						<div class="ztl_content_info_left"></div-->
+				</div>
+			</div>
+			<div style="clear:both;"></div>
+			<div class="black_line"></div>
+		</li>
+	{{/items}}
+	</div>
+	</div>
+	
+	</div>
+	
+	<div class="footer">
+		<div class="footer_shadow"></div>
+		<div class="header_placeholder">
+			[[[ztl_footer]]]
+		</div>
+	</div>
+</div>
+</script>
